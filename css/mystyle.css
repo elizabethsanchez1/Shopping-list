@@ -23,7 +23,7 @@ body {
 .container {
     border: 3px solid black; 
     background: #c5d5c5;
-    width: 30%;
+    max-width: 30%;
     height: 600px;
     margin: 3% auto;
     font-size: 25px;
@@ -34,18 +34,19 @@ body {
 h2 {
     font-size: 25px;
 }
-h3 {
-    font-size: 25px;
-    position: relative;
-    margin: 5px;
-    padding 10px 0;
-}
 .items {
     display: flex;
     flex-direction: column;
     padding: 20px;
     counter-reset: buy-items purchased-items;
 }
+h3 {
+    font-size: 25px;
+    position: relative;
+    margin: 5px;
+    padding 10px 0;
+}
+
 h3::before{
     content: '';
     display: block;
