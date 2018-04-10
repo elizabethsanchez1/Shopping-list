@@ -1,0 +1,143 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    min-height: 100%
+}
+.intro {
+    background: #9fa9a3;
+    margin: auto;
+    text-align: center;
+}
+.icon {
+    font-size: 45px;
+    display: inline-block;
+}
+h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 50px;
+}
+body {
+    background-color: #e3e0cc;
+}
+.container {
+    border: 3px solid black; 
+    background: #c5d5c5;
+    width: 30%;
+    height: 600px;
+    margin: 3% auto;
+    font-size: 25px;
+    font-family: 'Nunito', sans-serif;
+    user-select: none;
+}
+
+h2 {
+    font-size: 25px;
+}
+h3 {
+    font-size: 25px;
+    position: relative;
+    margin: 5px;
+    padding 10px 0;
+}
+.items {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    counter-reset: buy-items purchased-items;
+}
+h3::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -10px;
+    width: 5px;
+}
+h3::after {
+    display: block;
+    float: right;
+}
+.buy {
+    order: 1;
+}
+.buy::after {
+    content: ' ('counter(buy-items) ')';
+}
+.purchased {
+    order: 3;
+}
+.purchased::after {
+    content: ' ('counter(purchased-items) ')';
+}
+
+input {
+    display: block;
+    height: 30px;
+    order: 4;
+    outline: none;
+    counter-increment: purchased-items;       
+}
+
+input:checked {
+    order: 2;
+    counter-increment: buy-items
+}
+
+label {
+    display: block;
+    position: relative;
+    padding: 15px 0 15px 45px;
+    border-top: 1px dashed #fff;
+    order: 4;
+    cursor: pointer;
+    animation: buy .5s;
+}
+
+label:: before {
+    content: '\f10c';
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 10px;
+}
+
+label:hover, input:focus + label {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+input:checked + label {
+  order: 2;
+  animation: done .5s;
+}
+
+input:checked + label::before {
+  content: '\f058'; /* circle checkmark */
+}
+
+@keyframes done {
+  0% {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, .4);
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .4);
+  }
+}
+
+@keyframes undone {
+  0% {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, .4);
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .4);
+  }
+}
+
+
+
+
